@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.exemplo</groupId>
+    <groupId>meli</groupId>
     <artifactId>produto-api</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -124,8 +124,8 @@
                             <inputSpec>${project.basedir}/src/main/resources/swagger.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <output>${project.build.directory}/generated-sources/openapi</output>
-                            <apiPackage>com.exemplo.api.controller</apiPackage>
-                            <modelPackage>com.exemplo.api.model</modelPackage>
+                            <apiPackage>meli.controller</apiPackage>
+                            <modelPackage>meli.model</modelPackage>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useTags>true</useTags>
