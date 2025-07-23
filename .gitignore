@@ -1,0 +1,47 @@
+# Diretórios e arquivos da IDE IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Build Maven
+/target/
+
+# Arquivos temporários e de build
+*.log
+*.class
+*.war
+*.ear
+*.jar
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários e de editor
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Arquivos de configuração pessoais
+*.env
+.env.*
+*.key
+*.pem
+
+# Logs e relatórios
+logs/
+*.log
+*.out
+*.report
+
+# Outros possíveis diretórios
+generated/
+.cache/
+
+# Arquivos do Windows
+ehthumbs.db
+Desktop.ini
+
+# Arquivo de configuração Git
+.gitignore

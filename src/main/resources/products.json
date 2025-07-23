@@ -1,0 +1,81 @@
+[
+  {
+    "id": "1",
+    "title": "Samsung Galaxy A55 128gb 8gb Awesome Navy",
+    "description": "Capacidade e eficiência.\nCom seu poderoso processador e 8 GB de RAM, seu computador alcançará alto desempenho com alta velocidade de transmissão de conteúdo e executará vários aplicativos ao mesmo tempo sem atrasos.",
+    "lastPrice": 3099.00,
+    "price": 2287.00,
+    "images": [
+      "/images/products/1/img1.webp",
+      "/images/products/1/img2.webp",
+      "/images/products/1/img3.webp"
+    ],
+    "paymentMethods": ["MERCADO_PAGO","PIX", "CARTAO_CREDITO"],
+    "splitPayment": 12,
+    "stock": 10,
+    "seller": {
+      "id": "s1",
+      "tradeName": "Samsung Store",
+      "companyName": "Samsung Brasil Ltda",
+      "cpfCnpj": 12345678901234,
+      "url": "https://samsung.com.br",
+      "sales": 10500,
+      "products": 132,
+      "rating": 4.4
+    },
+    "details": {
+      "color": "Preto",
+      "features": [
+        "Memória RAM: 8 GB",
+        "Dispositivo lançado para você escolher a companhia telefônica de sua preferência",
+        "Compatível com redes 5G",
+        "128GB de memória interna"
+      ]
+    },
+    "rating": {
+      "rating0": 0,
+      "rating1": 0,
+      "rating2": 10,
+      "rating3": 40,
+      "rating4": 5,
+      "rating5": 20
+    }
+  },
+  {
+    "id": "2",
+    "title": "Notebook ABC",
+    "description": "Notebook com alto desempenho para tarefas profissionais",
+    "lastPrice": 2287.00,
+    "price": 3400.50,
+    "images": [
+      "/images/products/2/img2.jpg",
+      "/images/products/2/img2-open.jpg",
+      "/images/products/2/img2-keyboard.jpg"
+    ],
+    "paymentMethods": ["PIX", "CARTAO_CREDITO"],
+    "splitPayment": 12,
+    "stock": 10,
+    "seller": {
+      "id": "s2",
+      "tradeName": "Loja ABC",
+      "companyName": "Loja ABC LTDA",
+      "cpfCnpj": 98765432100000,
+      "url": "https://abcstore.com.br",
+      "sales": 7400,
+      "products": 220,
+      "rating": 4.2
+    },
+    "details": {
+      "color": "Cinza",
+      "features": ["Intel i7", "SSD 512GB", "Teclado iluminado"]
+    },
+    "rating": {
+      "rating0": 0,
+      "rating1": 0,
+      "rating2": 0,
+      "rating3": 0,
+      "rating4": 5,
+      "rating5": 20
+    }
+  }
+]

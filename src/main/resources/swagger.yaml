@@ -1,0 +1,188 @@
+openapi: 3.0.3
+info:
+  title: API de Produtos - MercadoLibre Clone
+  version: 1.0.0
+  description: API para fornecer detalhes de produtos e aplicar desconto flexível
+
+servers:
+  - url: http://localhost:8080
+    description: Servidor de desenvolvimento local
+
+paths:
+  /api/products:
+    get:
+      summary: Lista todos os produtos disponíveis
+      operationId: listProducts
+      responses:
+        '200':
+          description: Lista de produtos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+  /api/products/{id}:
+    get:
+      summary: Retorna os detalhes de um produto por ID
+      operationId: getProductById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Identificador do produto
+          schema:
+            type: integer
+        - name: discount
+          in: query
+          required: false
+          description: Porcentagem de desconto a aplicar
+          schema:
+            type: number
+            example: 15.0
+      responses:
+        '200':
+          description: Detalhes do produto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetail'
+        '404':
+          description: Produto não encontrado
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        lastPrice:
+          type: number
+          format: double
+        price:
+          type: number
+          format: double
+        images:
+          type: array
+          items:
+            type: string
+        paymentMethods:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentMethod'
+        splitPayment:
+          type: integer
+        stock:
+          type: integer
+        seller:
+          $ref: '#/components/schemas/Seller'
+        details:
+          $ref: '#/components/schemas/Details'
+        rating:
+          $ref: '#/components/schemas/Rating'
+
+    ProductDetail:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        discountedPrice:
+          type: number
+        paymentMethods:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentMethod'
+        seller:
+          type: string
+        stock:
+          type: integer
+        imageUrl:
+          type: string
+        details:
+          type: object
+          properties:
+            ram:
+              type: string
+            storage:
+              type: string
+            camera:
+              type: string
+            color:
+              type: string
+            nfc:
+              type: boolean
+
+    Seller:
+      type: object
+      properties:
+        id:
+          type: string
+        tradeName:
+          type: string
+        companyName:
+          type: string
+        cpfCnpj:
+          type: integer
+          format: int64
+        url:
+          type: string
+          format: uri
+        sales:
+          type: integer
+          format: int64
+        products:
+          type: integer
+          format: int64
+        rating:
+          type: number
+          format: float
+
+    Details:
+      type: object
+      properties:
+        color:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+
+    Rating:
+      type: object
+      properties:
+        rating0:
+          type: integer
+        rating1:
+          type: integer
+        rating2:
+          type: integer
+        rating3:
+          type: integer
+        rating4:
+          type: integer
+        rating5:
+          type: integer
+
+    PaymentMethod:
+      type: string
+      enum:
+        - MERCADO_PAGO
+        - PIX
+        - CARTAO_CREDITO
+        - BOLETO
+
+tags:
+  - name: Produtos
+    description: Endpoints relacionados a produtos
