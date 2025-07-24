@@ -1,5 +1,6 @@
 package meli.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import meli.dto.ProductDetail;
 import meli.model.Product;
 import meli.service.ProductService;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
+@Slf4j
 public class ProductController {
 
     private final ProductService productService;
@@ -23,15 +25,24 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<Product>> listAll() {
-        return ResponseEntity.ok(productService.findAll());
+        log.info("Listar todos os produtos");
+        List<Product> products = productService.findAll();
+        log.debug("Total de produtos: {}", products.size());
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDetail> getProductById(
-            @PathVariable String id
-    ) {
+    public ResponseEntity<ProductDetail> getProductById(@PathVariable String id) {
+        log.info("Buscar produto id: {}", id);
+
         return productService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .map(detail -> {
+                    log.debug("Produto encontrado: {}", detail.getTitle());
+                    return ResponseEntity.ok(detail);
+                })
+                .orElseGet(() -> {
+                    log.warn("Produto id '{}' não encontrado", id);
+                    return ResponseEntity.notFound().build();
+                });
     }
 }
